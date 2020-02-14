@@ -1,13 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'tiangolo/uvicorn-gunicorn-fastapi'
+      args '-p 80:80'
+    }
+
+  }
   stages {
     stage('server') {
-      agent {
-        docker {
-          image 'tiangolo/uvicorn-gunicorn-fastapi'
-        }
-
-      }
+      agent any
       steps {
         sh 'curl localhost'
       }
