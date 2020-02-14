@@ -32,7 +32,7 @@ echo "hi there" >> myfile.txt'''
       steps {
         unstash 'myfile'
         sh 'ls'
-        sh 'cat target/myfile.txt'
+        sh 'cat myfile.txt'
       }
     }
 
