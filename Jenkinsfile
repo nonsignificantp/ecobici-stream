@@ -10,7 +10,8 @@ pipeline {
 
       }
       steps {
-        sh 'touch myfile.txt'
+        sh '''touch myfile.txt
+echo "hi there" >> myfile.txt'''
         stash(name: 'myfile', includes: '**/*.txt')
       }
     }
@@ -24,6 +25,14 @@ pipeline {
       }
       steps {
         sh 'ls'
+      }
+    }
+
+    stage('read with stash') {
+      steps {
+        unstash 'myfile'
+        sh 'ls'
+        sh 'cat target/myfile.txt'
       }
     }
 
