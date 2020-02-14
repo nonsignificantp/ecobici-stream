@@ -10,18 +10,7 @@ pipeline {
 
       }
       steps {
-        sh '''echo "create file"
-
-
-
-
-
-
-
-
-
-
-&& touch myfile.txt'''
+        sh 'touch myfile.txt'
         stash(name: 'myfile', includes: '**/*.txt')
       }
     }
