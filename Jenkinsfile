@@ -5,7 +5,6 @@ pipeline {
       agent {
         docker {
           image 'tiangolo/uvicorn-gunicorn-fastapi'
-          args '-p 80:80'
         }
 
       }
